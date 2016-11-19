@@ -24,7 +24,9 @@ public class ChatClient extends Frame {
 		this.setSize(300, 300);
 		add(tfTxt, BorderLayout.SOUTH);
 		add(taContent, BorderLayout.NORTH);
+		// 此处的pack()～
 		pack();
+		//进行窗口监听
 		this.addWindowListener(new WindowAdapter(){
 			@Override
 			public void windowClosing(WindowEvent arg0) {
@@ -129,9 +131,9 @@ System.out.println("connected!");
 					taContent.setText(taContent.getText()+str+'\n');
 				}
 			}catch(EOFException e){
-				System.out.println("�˳��ˣ�bye��");
+				System.out.println("ÍË³öÁË£¬bye£¡");
 			}catch(SocketException e){
-				System.out.println("�˳��ˣ�bye��");
+				System.out.println("ÍË³öÁË£¬bye£¡");
 			}catch(IOException e){
 				e.printStackTrace();
 			}
