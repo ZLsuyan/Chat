@@ -4,15 +4,15 @@ import java.net.*;
 import java.util.*;
 
 /**
- * Ğ´Ò»¸ö»ùÓÚÍøÂç°æµÄÁÄÌìÊÒ
- * ¿ÉÒÔÊµÏÖ¶à¸ö¿Í»§¶Ë
- * ¡¾×¢Òâ¡¿£ºÈç¹ûÏëÔÚÒ»¸öÍâ²¿°ü×°ÀàChatServerµÄ¾²Ì¬·½·¨ÖĞnewÒ»¸öÄÚ²¿Àà£¬ÊÇºÜÂé·³µÄ¡£
- *          ÓĞÁ½ÖÖ½â¾ö°ì·¨:
- *           1¡¢ÏÈnewÒ»¸öÍâ²¿°ü×°Àà£¬È»ºóÔÙ½Ó×Å.newÒ»¸öÄÚ²¿Àà£º
- *              ÀıÈç£º new ChatServer().new Client();
- *           2¡¢Ö±½ÓÔÚÍâ²¿°ü×°ÀàÄÚ²¿Ğ´Ò»¸ö·½·¨start()£¬Õâ¸ö·½·¨ÖĞ¿ÉÒÔnewÒ»¸öÄÚ²¿Àà£¬
- *              È»ºóÈÃÍâ²¿°ü×°ÀàµÄ¾²Ì¬·½·¨main()È¥µ÷ÓÃÕâ¸ö·½·¨start()¡£
- *           µÚ¶şÖÖ·½·¨ÊÇ½Ï³£ÓÃ·½·¨¡£
+ * å†™ä¸€ä¸ªåŸºäºç½‘ç»œç‰ˆçš„èŠå¤©å®¤
+ * å¯ä»¥å®ç°å¤šä¸ªå®¢æˆ·ç«¯
+ * ã€æ³¨æ„ã€‘ï¼šå¦‚æœæƒ³åœ¨ä¸€ä¸ªå¤–éƒ¨åŒ…è£…ç±»ChatServerçš„é™æ€æ–¹æ³•ä¸­newä¸€ä¸ªå†…éƒ¨ç±»ï¼Œæ˜¯å¾ˆéº»çƒ¦çš„ã€‚
+ *          æœ‰ä¸¤ç§è§£å†³åŠæ³•:
+ *           1ã€å…ˆnewä¸€ä¸ªå¤–éƒ¨åŒ…è£…ç±»ï¼Œç„¶åå†æ¥ç€.newä¸€ä¸ªå†…éƒ¨ç±»ï¼š
+ *              ä¾‹å¦‚ï¼š new ChatServer().new Client();
+ *           2ã€ç›´æ¥åœ¨å¤–éƒ¨åŒ…è£…ç±»å†…éƒ¨å†™ä¸€ä¸ªæ–¹æ³•start()ï¼Œè¿™ä¸ªæ–¹æ³•ä¸­å¯ä»¥newä¸€ä¸ªå†…éƒ¨ç±»ï¼Œ
+ *              ç„¶åè®©å¤–éƒ¨åŒ…è£…ç±»çš„é™æ€æ–¹æ³•main()å»è°ƒç”¨è¿™ä¸ªæ–¹æ³•start()ã€‚
+ *           ç¬¬äºŒç§æ–¹æ³•æ˜¯è¾ƒå¸¸ç”¨æ–¹æ³•ã€‚
  * @author zengli
  * @date 2016/5/31
  */
@@ -27,14 +27,14 @@ public class ChatServer {
 			
 	}
 		
-
+	//åœ¨å¤–éƒ¨åŒ…è£…å†…ä¸­å®šä¹‰ä¸€ä¸ªstart()æ–¹æ³•ï¼Œç„¶ååœ¨start()æ–¹æ³•ä¸­newä¸€ä¸ªå†…éƒ¨ç±»ã€‚
 	public void start(){
 		try {
 			ss = new ServerSocket(8888);
 			started = true;
 		}catch(BindException e){
-			System.out.println("¶Ë¿ÚÊ¹ÓÃÖĞ...");
-			System.out.println("Çë¹ØµôÏà¹Ø³ÌĞò£¬²¢ÖØĞÂÔËĞĞ·şÎñÆ÷£¡");
+			System.out.println("ç«¯å£ä½¿ç”¨ä¸­...");
+			System.out.println("è¯·å…³æ‰ç›¸å…³ç¨‹åºï¼Œå¹¶é‡æ–°è¿è¡ŒæœåŠ¡å™¨ï¼");
 			System.exit(0);
 		}catch (IOException e){
 			e.printStackTrace();
@@ -45,7 +45,7 @@ public class ChatServer {
 				boolean bConnected = false;
 				Socket s = ss.accept();
 				
-				//Æô¶¯Ò»¸öµ¥¶ÀµÄÏß³Ì
+				//å¯åŠ¨ä¸€ä¸ªå•ç‹¬çš„çº¿ç¨‹
 				Client c = new Client(s);
 				clients.add(c);
 System.out.println("a client connected!");
@@ -66,8 +66,8 @@ System.out.println("a client connected!");
 	}
 	
 	/*
-	 * Ïß³ÌÀà£º´ú±í¿Í»§¶ËÔÚ·şÎñÆ÷Õâ±ßµÄÒ»¸ö°ü×°;
-	 * ÄÚ²¿Àà¿ÉÒÔÖ±½ÓÊ¹ÓÃËüµÄ°ü×°ÀàµÄ³ÉÔ±±äÁ¿»ò³ÉÔ±·½·¨
+	 * çº¿ç¨‹ç±»ï¼šä»£è¡¨å®¢æˆ·ç«¯åœ¨æœåŠ¡å™¨è¿™è¾¹çš„ä¸€ä¸ªåŒ…è£…;
+	 * å†…éƒ¨ç±»å¯ä»¥ç›´æ¥ä½¿ç”¨å®ƒçš„åŒ…è£…ç±»çš„æˆå‘˜å˜é‡æˆ–æˆå‘˜æ–¹æ³•
 	 */
 	class Client implements Runnable{
 		private Socket s ;
@@ -91,11 +91,11 @@ System.out.println("a client connected!");
 				dos.writeUTF(str);
 			} catch (NullPointerException e) {
 				clients.remove(this);
-				System.out.println("¶Ô·½ÍË³öÁË£¡ÎÒ°ÑËü´ÓlistÖĞÈ¥³ıÁË");
+				System.out.println("å¯¹æ–¹é€€å‡ºäº†ï¼æˆ‘æŠŠå®ƒä»listä¸­å»é™¤äº†");
 			//	e.printStackTrace();
 			} catch (IOException e) {
 				clients.remove(this);
-				System.out.println("¶Ô·½ÍË³öÁË£¡ÎÒ°ÑËü´ÓlistÖĞÈ¥³ıÁË");
+				System.out.println("å¯¹æ–¹é€€å‡ºäº†ï¼æˆ‘æŠŠå®ƒä»listä¸­å»é™¤äº†");
 			//	e.printStackTrace();
 			}
 		}
@@ -107,11 +107,11 @@ System.out.println("a client connected!");
 System.out.println(str);
 					for(int i=0;i<clients.size();i++){
 						Client c = clients.get(i);
-						//µ±ÆäÖĞÄ³Ò»¸ö¿Í»§¶ËÒÑ¾­¹Ø±ÕÊ±£¬ËüÔÚ¼¯ºÏÖĞ»¹ÔÚ£¬ÄãÔÙsendÊ±¾Í»á±¨´í£¬ÒòÎªÆäÊµËüÒÑ¾­¹Ø±ÕÁË¡£
+						//å½“å…¶ä¸­æŸä¸€ä¸ªå®¢æˆ·ç«¯å·²ç»å…³é—­æ—¶ï¼Œå®ƒåœ¨é›†åˆä¸­è¿˜åœ¨ï¼Œä½ å†sendæ—¶å°±ä¼šæŠ¥é”™ï¼Œå› ä¸ºå…¶å®å®ƒå·²ç»å…³é—­äº†ã€‚
 						c.send(str);
 					}
 					
-					//Iterator»á½øĞĞËø¶¨£¬µ«ÊÇ·¢¶«Î÷²»ÊÇĞŞ¸Ä£¬Ã»±ØÒªËø¶¨£¬¶øÇÒËø¶¨»áĞ§ÂÊµÍ¡£
+					//Iteratorä¼šè¿›è¡Œé”å®šï¼Œä½†æ˜¯å‘ä¸œè¥¿ä¸æ˜¯ä¿®æ”¹ï¼Œæ²¡å¿…è¦é”å®šï¼Œè€Œä¸”é”å®šä¼šæ•ˆç‡ä½ã€‚
 					/*
 					for(Iterator<Client> it = clients.iterator();it.hasNext();){
 						Client c = it.next();
